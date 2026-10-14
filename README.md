@@ -1,1 +1,1 @@
-# global-cloud
+# globalcloud

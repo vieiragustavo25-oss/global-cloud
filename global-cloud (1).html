@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Global Cloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap">
+<style>
+:root{
+  --bg:#F4FAFE; --surface:#FFFFFF; --ink:#0F2A43; --muted:#4A6479;
+  --line:#C9DDEA; --accent:#1B6FD1; --ok:#14855F; --sun:#FFB84D; --sky:#DCEEFB;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1B2B; --surface:#12293E; --ink:#E8F3FB; --muted:#9FB6C8;
+    --line:#24425B; --accent:#6FB3FF; --ok:#4FD1A0; --sky:#16344D;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1B2B; --surface:#12293E; --ink:#E8F3FB; --muted:#9FB6C8;
+  --line:#24425B; --accent:#6FB3FF; --ok:#4FD1A0; --sky:#16344D;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:0 20px}
+
+/* Topo */
+.top{display:flex; align-items:center; gap:10px; padding:20px 0; font-weight:700}
+.logo{position:relative; width:34px; height:20px; background:var(--accent); border-radius:20px}
+.logo::before,.logo::after{content:""; position:absolute; background:var(--accent); border-radius:50%}
+.logo::before{width:16px; height:16px; left:5px; top:-8px}
+.logo::after{width:12px; height:12px; left:16px; top:-5px}
+
+/* Hero */
+.hero{display:grid; gap:36px; padding:24px 0 56px; align-items:center}
+h1{font-size:clamp(2.6rem,9vw,4.6rem); line-height:1.02; margin:0 0 18px; letter-spacing:-.03em}
+.lead{font-size:1.1rem; color:var(--muted); max-width:34ch; margin:0}
+.lead strong{color:var(--ink); font-weight:600}
+
+.scene{position:relative; padding:28px 0}
+.cloud{position:absolute; inset:0 -8px; background:var(--sky); border-radius:48px; z-index:0}
+.cloud::before,.cloud::after{content:""; position:absolute; background:var(--sky); border-radius:50%}
+.cloud::before{width:120px; height:120px; top:-44px; left:12%}
+.cloud::after{width:90px; height:90px; top:-30px; left:42%}
+.chat{position:relative; z-index:1; display:grid; gap:12px; padding:0 18px}
+.msg{max-width:88%; padding:12px 14px; border-radius:16px; background:var(--surface); border:1px solid var(--line); font-size:.92rem}
+.msg small{display:block; margin-top:6px; color:var(--muted); font-size:.76rem}
+.msg.me{justify-self:end; background:var(--accent); color:#fff; border-color:transparent}
+.msg.me small{color:rgba(255,255,255,.82)}
+.badge{display:inline-flex; align-items:center; gap:6px; font-size:.78rem; font-weight:600; color:var(--ok)}
+.badge::before{content:"✓"; display:grid; place-items:center; width:16px; height:16px; border-radius:50%; background:var(--ok); color:var(--bg); font-size:.62rem}
+.example{position:relative; z-index:1; margin:14px 18px 0; font-size:.76rem; color:var(--muted)}
+
+/* Pontos fortes */
+h2{font-size:clamp(1.6rem,5vw,2.2rem); letter-spacing:-.02em; margin:0 0 24px}
+.points{display:grid; gap:14px; padding:0; margin:0 0 64px; list-style:none}
+.points li{padding:20px 22px; background:var(--surface); border:1px solid var(--line); border-left:6px solid var(--accent); border-radius:6px 18px 18px 6px}
+.points li:nth-child(even){border-left-color:var(--sun)}
+.points li:last-child{border-left-color:var(--ok)}
+.points h3{margin:0 0 6px; font-size:1.05rem}
+.points p{margin:0; color:var(--muted); font-size:.95rem}
+
+/* Item 3 */
+.more{padding:26px 22px; margin-bottom:56px; border:2px dashed var(--line); border-radius:18px}
+.more h2{margin-bottom:8px; font-size:1.3rem}
+.more p{margin:0; color:var(--muted)}
+
+footer{padding:24px 0 40px; border-top:1px solid var(--line); color:var(--muted); font-size:.85rem}
+
+a,button{outline-offset:3px}
+:focus-visible{outline:3px solid var(--accent)}
+
+@media (min-width:760px){
+  .hero{grid-template-columns:1.05fr 1fr; gap:56px; padding-top:48px}
+  .points{grid-template-columns:repeat(6,1fr)}
+  .points li{grid-column:span 2}
+  .points li:nth-child(1),.points li:nth-child(2){grid-column:span 3}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><span class="logo" aria-hidden="true"></span> Global Cloud</header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Global Cloud</h1>
+        <p class="lead">Uma rede de conexão, como o WhatsApp, <strong>focada apenas na comunicação de comércio e empresas.</strong></p>
+      </div>
+
+      <div class="scene" aria-label="Exemplo de conversa entre duas empresas">
+        <div class="cloud" aria-hidden="true"></div>
+        <div class="chat">
+          <div class="msg me">Olá! Precisamos de 500 caixas até o dia 20.
+            <small>Enviado em português</small>
+          </div>
+          <div class="msg">Hello! We need 500 boxes by the 20th.
+            <small>Tradução automática</small>
+            <span class="badge">Empresa verificada</span>
+          </div>
+        </div>
+        <p class="example">Exemplo ilustrativo</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>5 pontos fortes</h2>
+      <ul class="points">
+        <li>
+          <h3>Grande armazenamento de dados</h3>
+          <p>Espaço para guardar tudo, com backup.</p>
+        </li>
+        <li>
+          <h3>Segurança de dados</h3>
+          <p>As informações do seu comércio ficam protegidas.</p>
+        </li>
+        <li>
+          <h3>Acessível para todos</h3>
+          <p>Feita para comércios grandes ou pequenos.</p>
+        </li>
+        <li>
+          <h3>Facilidade de comunicação</h3>
+          <p>Fale com empresas estrangeiras através de tradução automática.</p>
+        </li>
+        <li>
+          <h3>Verificação de autenticidade</h3>
+          <p>Confirme que a empresa do outro lado é de verdade.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Complete com o texto do item 3 das suas anotações -->
+    <section class="more">
+      <h2>Mais detalhes</h2>
+    </section>
+  </main>
+
+  <footer>Global Cloud · rede de conexão para o comércio e as empresas</footer>
+</div>
+</body>
+</html>
